@@ -1,0 +1,38 @@
+---
+title: "Tooth growth dataset: exploratory data analysis"
+author: "Maximiliano"
+date: "10/11/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The dataset {.smaller}
+
+Available in the *R datasets package*, ToothGrowth dataset compares **tooth growth** in 60 guinea pigs **by supplement type** (OJ: Orange Juice | VC: Ascorbic acid) **and dose** in milligrams/day.
+
+*Some of the first rows*
+```{r, comment=""}
+head(ToothGrowth,3)
+```
+
+*Summary*
+```{r, comment=""}
+summary(ToothGrowth)
+```
+
+## Panel Boxplot {.smaller}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=4}
+library(plotly)
+plot1 <- plot_ly(y=ToothGrowth$len, color=factor(ToothGrowth$supp) ,type="box", boxpoints = "all") %>% layout(title = "Tooth lenght by supplement type", yaxis=list(title="Tooth Length"),xaxis=list(title="Supplement type (OJ: Orange Juice | VC: Ascorbic acid)"))
+plot1
+```
+\
+*From the panel boxplot above it is not clear if one of the supplements is better. We could do an hypothesis tests to verify this.*
+
+
+
+
+
